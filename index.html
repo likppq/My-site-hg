@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Super Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      position: fixed;
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    header h1 {
+      color: #38bdf8;
+    }
+
+    nav button {
+      margin-left: 10px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #38bdf8;
+      color: black;
+      transition: 0.3s;
+    }
+
+    nav button:hover {
+      transform: scale(1.1);
+      background: #0ea5e9;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 600px;
+      opacity: 0.8;
+    }
+
+    .btn-main {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(45deg, #38bdf8, #818cf8);
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-main:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #38bdf8;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 16px;
+      width: 250px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .close {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ef4444;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SUPER SITE</h1>
+  <nav>
+    <button onclick="scrollToSection('home')">Головна</button>
+    <button onclick="scrollToSection('features')">Фішки</button>
+    <button onclick="scrollToSection('contact')">Контакти</button>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h2>Вау-сайт рівня $2000 💎</h2>
+  <p>Сучасний дизайн, анімації та інтерактив. Все працює, виглядає круто і готове до продакшену.</p>
+  <button class="btn-main" onclick="openModal()">Замовити</button>
+</section>
+
+<section id="features">
+  <h2>🔥 Можливості</h2>
+  <div class="cards">
+    <div class="card">⚡ Швидкий</div>
+    <div class="card">🎨 Стильний</div>
+    <div class="card">📱 Адаптивний</div>
+    <div class="card">🚀 Інтерактивний</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>📞 Контакти</h2>
+  <p>Натисни кнопку нижче, щоб зв'язатися</p>
+  <button class="btn-main" onclick="showAlert()">Написати</button>
+</section>
+
+<footer>
+  © 2026 Super Site
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Дякую за інтерес!</h3>
+    <p>Ми зв'яжемось з тобою найближчим часом 😉</p>
+    <button class="close" onclick="closeModal()">Закрити</button>
+  </div>
+</div>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function showAlert() {
+    alert("Повідомлення відправлено 🚀");
+  }
+
+  function openModal() {
+    document.getElementById("modal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
